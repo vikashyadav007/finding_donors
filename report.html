@@ -13119,7 +13119,9 @@ div#notebook {
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">time</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span> <span class="c1"># Allows the use of display() for DataFrames</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span> 
+
+<span class="c1"># Allows the use of display() for DataFrames</span>
 
 <span class="c1"># Import supplementary visualization code visuals.py</span>
 <span class="kn">import</span> <span class="nn">visuals</span> <span class="k">as</span> <span class="nn">vs</span>
@@ -13868,7 +13870,78 @@ It is a ratio of true positives(words classified as spam, and which are actually
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong></p>
+<h2 id="Answer">Answer<a class="anchor-link" href="#Answer">&#182;</a></h2><h2 id="Gaussian-Naive-Bayes">Gaussian Naive Bayes<a class="anchor-link" href="#Gaussian-Naive-Bayes">&#182;</a></h2><h2 id="Real-world-application">Real-world application<a class="anchor-link" href="#Real-world-application">&#182;</a></h2>
+<pre><code>A common area of application for Gaussian Naive Bayes is text classification. For instance, it can be used to classify e-mails as spam / non-spam.
+
+</code></pre>
+<h2 id="Strengths">Strengths<a class="anchor-link" href="#Strengths">&#182;</a></h2>
+<pre><code>Gaussian Naive Bayes can deal with small training sets that have many features (e.g. text classification). The resulting model is very simplistic and can be trained quickly. It can deal well with datasets that have many features (high-dimensional datasets) due to its independence assumption.
+
+</code></pre>
+<h2 id="Weaknesses">Weaknesses<a class="anchor-link" href="#Weaknesses">&#182;</a></h2>
+<pre><code>Gaussian Naive Bayes does not work well if the train data are incomplete. If you have no occurrences of a class label and a certain attribute value together then the frequency-based probability estimate will be zero. Given Naive-Bayes' conditional independence assumption, when all the probabilities are multiplied you will get zero and this will affect the posterior probability estimate. Additionally, strongly correlating features might become an issue since Naive Bayes assumes independence of features. It also can’t learn interactions between features (e.g., it can’t learn that although you love movies with Brad Pitt and Tom Cruise, you hate movies where they’re together.
+
+</code></pre>
+<h2 id="What-makes-it-a-good-candidate?">What makes it a good candidate?<a class="anchor-link" href="#What-makes-it-a-good-candidate?">&#182;</a></h2>
+<pre><code>It could be a good candidate to solving the problem as the dataset has a lot of features (103) after the one-hot-encoding step. Gaussian Naive Bayes is probably the fastest algorithm among the given ones.
+
+https://en.wikipedia.org/wiki/Naive_Bayes_classifier
+https://www.researchgate.net/post/What_are_the_disadvantages_of_Naive_Bayes
+http://www.simafore.com/blog/3-challenges-with-naive-bayes-classifiers-and-how-to-overcome http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/ https://ocw.mit.edu/courses/sloan-school-of-management/15-097-prediction-machine-learning-and-statistics-spring-2012/lecture-notes/MIT15_097S12_lec07.pdf
+
+</code></pre>
+<h2 id="Support-Vector-Machine">Support Vector Machine<a class="anchor-link" href="#Support-Vector-Machine">&#182;</a></h2><h2 id="Real-world-application">Real-world application<a class="anchor-link" href="#Real-world-application">&#182;</a></h2>
+<pre><code>SVMs have a number of applications in several fields.
+
+   Face detection : SVMs classify parts of the image as a face and non-face and create a square boundary around the face.
+Text and hypertext categorization: SVMs allow Text and hypertext categorization for both inductive and
+transductive models. They use training data to classify documents into different categories. It categorizes on
+the basis of the score generated and then compares with the threshold value.
+Classification of images: Use of SVMs provides better search accuracy for image classification. It provides better accuracy in comparison to the traditional query based searching techniques.
+Bioinformatics: It includes protein classification and cancer classification. We use SVM for identifying the classification of genes, patients on the basis of genes and other biological problems.
+Handwriting recognition: We use SVMs to recognize handwritten characters used widely.
+Generalized predictive control: Use SVM based GPC to control chaotic dynamics with useful parameters.
+
+</code></pre>
+<h2 id="Strengths">Strengths<a class="anchor-link" href="#Strengths">&#182;</a></h2>
+<pre><code>SVM can transform features in a higher dimensional space and find a hyperplane in this space that separates the data points. That's why the SVM is able to solve problems which might not look like linearly separatable. Furthermore, SVM is defined by a convex optimization problem which does not have a local minimum.
+
+</code></pre>
+<h2 id="Weaknesses">Weaknesses<a class="anchor-link" href="#Weaknesses">&#182;</a></h2>
+<pre><code>Fitting the model can take a long time depending on how we choose our kernel parameters. Furthermore, picking the right kernel and its parameters is often quite hard. In a way the SVM moves the problem of overfitting from optimising the parameters to model selection.
+More "complex" kernels (higher degree polynomials) are sensitive to overfitting.
+Furthermore, SVMs are binary classifiers. Solving a multi-class problem requires the training of multiple classifiers which will take a long time.
+
+</code></pre>
+<h2 id="What-makes-it-a-good-candidate?">What makes it a good candidate?<a class="anchor-link" href="#What-makes-it-a-good-candidate?">&#182;</a></h2>
+<pre><code>Since your problem is a two-class problem, SVMs can be a good approach to solving this problem. By transforming into a higher dimensional space we might be able to better classify the data.
+
+https://data-flair.training/blogs/applications-of-svm/
+https://stats.stackexchange.com/questions/24437/advantages-and-disadvantages-of-svm
+
+</code></pre>
+<h2 id="Gradient-Boosting-(Ensemble-Method)">Gradient Boosting (Ensemble Method)<a class="anchor-link" href="#Gradient-Boosting-(Ensemble-Method)">&#182;</a></h2><h2 id="Real-world-application">Real-world application<a class="anchor-link" href="#Real-world-application">&#182;</a></h2>
+<pre><code>Ensemble learning helps improve machine learning results by combining several models. In 2009 a team won the Netflix prize using essemble based methods.
+
+</code></pre>
+<h2 id="Strengths">Strengths<a class="anchor-link" href="#Strengths">&#182;</a></h2>
+<pre><code>GB-Trees have a better accuracy than Random Forests.
+
+</code></pre>
+<h2 id="Weaknesses">Weaknesses<a class="anchor-link" href="#Weaknesses">&#182;</a></h2>
+<pre><code>Prone to overfitting.
+Requires careful tuning of different hyper-parameters.
+Regression: It might not be robust to outliners depending on the selected loss function (e.g. squared error)
+
+</code></pre>
+<h2 id="What-makes-it-a-good-candidate?">What makes it a good candidate?<a class="anchor-link" href="#What-makes-it-a-good-candidate?">&#182;</a></h2>
+<pre><code>Decision Tree based methods are fast to train. However, a single decision tree is often not enough to classify the data accurately. Combining multiple decision trees will improve our result (Random Forests, Gradient Boosting). Since Gradient Boosting is superior to Random Forests (when picking the right parameters) most of the time, I've chosen Gradient Boosting.
+
+https://en.wikipedia.org/wiki/Netflix_Prize
+https://blog.statsbot.co/ensemble-learning-d1dcd548e936
+http://www.stats.ox.ac.uk/~flaxman/HT17_lecture15.pdf
+https://www.quora.com/How-do-ensemble-methods-work-and-why-are-they-superior-to-individual-models
+http://blog.kaggle.com/2017/01/23/a-kaggle-master-explains-gradient-boosting/ http://www.ccs.neu.edu/home/vip/teach/MLcourse/4_boosting/slides/gradient_boosting.pdf</code></pre>
 
 </div>
 </div>
@@ -14108,7 +14181,8 @@ Look at the graph at the bottom left from the cell above(the visualization creat
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong></p>
+<h2 id="Answer:">Answer:<a class="anchor-link" href="#Answer:">&#182;</a></h2><p>It seems to me that the best method to solve this problem is the Gradient Boosting Classifier. Besides achieving the best accuracy and f-score, it also can be trained in a reasonable amount of time too. It's also interesting to see that Gaussian Naive Bayes performs extremely bad on our dataset compared to the other models. Although it is the fastest one to train, the model is not competitive if we consider accuracy / f-score. SVC does also perform very nicely in terms of accuracy / f-score, but it takes significantly more time to train than the Gradient Boosting Classifier.</p>
+<p>When taking all these attributes into account, we can conclude that the Gradient Descent Boosting Classifier is the best classifier for our problem. Due to its fast training we will be able to fully utilize the entire dataset and therefore maximize the performance on unseen data. Additionally, it already has the best accuracy without further parameter tuning.</p>
 
 </div>
 </div>
@@ -14128,7 +14202,12 @@ Look at the graph at the bottom left from the cell above(the visualization creat
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong></p>
+<h2 id="Answer:">Answer:<a class="anchor-link" href="#Answer:">&#182;</a></h2><p>Gradient boosting is an ensemble based machine learning technique. Ensemble-based techniques combine many so-called "weak" learners into strong learners. A weak learner is any machine learning algorithm that performs poorly, its accuracy is above chance, but just barely. For example, a single decision tree with less depth (of course, in real-world we always have to consider a specific problem when before saying that an algorithm is weak).</p>
+<h2 id="Idea:">Idea:<a class="anchor-link" href="#Idea:">&#182;</a></h2><p>Let's say we are given some training data we want to train our decision/regression tree classifier on. Such a classifier can be seen as a simple game of questions and answers. We repeatedly ask questions like "Is the person older than 30?" until we are able to classify the feature successfully. Unfortunately, asking a handful of questions is usually not enough to "win" such a question game (make an accurate prediction). However, if we play the game more often and always ask different questions we most likely increase the overall chance to win the game.</p>
+<p>Anyway, there is still the question how to combine the different models. This is where the term "Gradient Boosting" comes into play. Basically, Gradient Boosting tries to improve a bad overall result achieved by a set of decision/regression trees by producing a new tree that compensates the error made by the other models.</p>
+<p>In other words, we fit a regression tree and obtain a prediction for our training set. Afterward, we compute the difference between the expected value and our prediction. This is the error made by our model. We now train a new tree using the error as your new target value.</p>
+<p>By repeating this process we finally generate a better and better model.</p>
+<p><a href="https://medium.com/mlreview/gradient-boosting-from-scratch-1e317ae4587d">https://medium.com/mlreview/gradient-boosting-from-scratch-1e317ae4587d</a> <a href="http://www.ccs.neu.edu/home/vip/teach/MLcourse/4_boosting/slides/gradient_boosting.pdf">http://www.ccs.neu.edu/home/vip/teach/MLcourse/4_boosting/slides/gradient_boosting.pdf</a></p>
 
 </div>
 </div>
@@ -14312,7 +14391,7 @@ Final F-score on the testing data: 0.7510
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong></p>
+<h2 id="Answer:">Answer:<a class="anchor-link" href="#Answer:">&#182;</a></h2><p>As it can be seen above the optimized model performs slightly better than the unoptimized one. If we compare to results to the Naive Predictor, we notice the Gradient Boosting Classifier performs significantly better than the Naive Predictor.</p>
 
 </div>
 </div>
@@ -14339,6 +14418,13 @@ Final F-score on the testing data: 0.7510
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
+<ul>
+<li><strong>Capital-gain</strong>  If the capital-gain is high and the capital-loss is low, we can expect the person to make a lot of money. In my understanding capital-gain-capital-loss &gt; 50k should be a clear indicator for a person earning more than 50k.</li>
+<li><strong>Capital-loss</strong> See Capital-gain for explanation. Adding both features can probabily boost the performance.</li>
+<li><strong>Hours-per-week</strong> On average people who work hours a week will earn more than people who work less.</li>
+<li><strong>Education Level</strong> People with a good education are more likely to get a job that is well payed.</li>
+<li><strong>Age</strong> Young people usually earn less or have no income at all.</li>
+</ul>
 
 </div>
 </div>
@@ -14418,6 +14504,8 @@ Final F-score on the testing data: 0.7510
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
+<p>My assumptions were partially correct. For example, the chart confirms that capital-gain, capital-loss and age are important features. However, it turned out that capital-gain and capital-loss are not as important as I expected them to be. Surprisingly, the marital status plays an important role as well. Maybe it's because of the fact that people who are in a relationship tend to have more money if both spouses work for a company and their expenses divide evenly.
+Finally, there's the education number which seems to be the most important features. Maybe it's because of the fact the education number gives us some information about whether the person studies or not. Furthermore, it might incorporate some knowledge about the person's age.</p>
 
 </div>
 </div>
@@ -14502,7 +14590,8 @@ F-score on testing data: 0.7234
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong>
+The accuracy / f-score of the model decreases. So, obviously, the removed features do still contain important information that is important for an accuracy classification. Since the training time can still be done in a reasonable time, I wouldn't reduce the number of features. However, if it was, I would suggest to do it as the loss of accuracy is not too high.</p>
 
 </div>
 </div>
